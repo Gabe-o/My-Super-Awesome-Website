@@ -43,23 +43,36 @@ app-game-of-life-canvas {
 
 .content {
     margin-top: 70vh;
-    margin-inline: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
     color: whitesmoke;
 }
 
 .about-me-section {
+    width: 1200px;
     p {
         color: rgb(230, 230, 230);
     }
 }
 
 .projects-section {
+    width: 1200px;
     margin-top: 8%;
 }
 
-@media (max-width : 900px) {
+@media (orientation: portrait) {
     .content {
-            margin-top: 66vh;
-            margin-inline: 10%;
-        }
+        margin-top: 66vh;
+    }
+
+    .about-me-section {
+        width: 95%;
+    }
+
+    .projects-section {
+        width: 95%;
+    }
 }
