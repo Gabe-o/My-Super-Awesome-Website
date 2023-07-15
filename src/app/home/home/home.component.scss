@@ -1,6 +1,9 @@
 .mat-toolbar {
   background: rgba(0, 0, 0, 0);
   position: fixed;
+  a {
+    margin-left: 10px;
+  }
 }
 
 .fill-space {
