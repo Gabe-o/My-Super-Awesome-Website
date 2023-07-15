@@ -13,17 +13,33 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
   @Input() canvasWidth!: number;
   @Input() canvasHeight!: number;
   @Input() initialState!: number[] | number[][];
+  @Input() reinitOnWindowResize: boolean = false;
 
   context!: GPUCanvasContext;
   device!: GPUDevice;
 
   async ngAfterViewInit() {
-    const GRID_WIDTH = this.gridWidth || 10;
-    const GRID_HEIGHT = this.gridHeight || 10;
-    const UPDATE_INTERVAL = this.updateInterval || 5000;
+    let GRID_WIDTH = this.gridWidth || 10;
+    let GRID_HEIGHT = this.gridHeight || 10;
+    let UPDATE_INTERVAL = this.updateInterval || 5000;
     const WORKGROUP_SIZE = 10;
-    this.canvas.nativeElement.width = this.canvasWidth || 100;
-    this.canvas.nativeElement.height = this.canvasHeight || 100;
+
+    let resizeSimulationCanvas = () => {
+      this.canvas.nativeElement.width = window.innerWidth;
+      this.canvas.nativeElement.height = window.innerHeight;
+      GRID_HEIGHT = Math.round((GRID_WIDTH * window.innerHeight) / window.innerWidth);
+      this.ngAfterViewInit();
+    };
+
+    if (this.reinitOnWindowResize) {
+      this.canvas.nativeElement.width = window.innerWidth;
+      this.canvas.nativeElement.height = window.innerHeight;
+      GRID_HEIGHT = Math.round((GRID_WIDTH * window.innerHeight) / window.innerWidth);
+      window.onresize = resizeSimulationCanvas;
+    } else {
+      this.canvas.nativeElement.width = this.canvasWidth || 100;
+      this.canvas.nativeElement.height = this.canvasHeight || 100;
+    }
 
     // Create an array representing the active state of each cell.
     let cellStateArray: Uint32Array = new Uint32Array(GRID_WIDTH * GRID_HEIGHT);
