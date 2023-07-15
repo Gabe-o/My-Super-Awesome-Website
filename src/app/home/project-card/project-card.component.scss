@@ -1,7 +1,51 @@
+@use "@angular/material" as mat;
+
+$my-palette: mat.define-palette(mat.$light-blue-palette);
+
 .card {
-    display: flex;
-    padding: 25px;
-    background: rgb(17,18,22);
+  display: flex;
+  padding: 35px;
+  background: rgb(17, 18, 22);
+  border-radius: 15px;
+  height: 320px;
+}
+
+.image {
+  aspect-ratio: 1;
+  img {
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
-    height: 320px;
+    border: 3px solid mat.get-color-from-palette($my-palette, 500);
+    box-shadow: mat.get-color-from-palette($my-palette, 500) 0px 0px 20px 0px;
+  }
+}
+
+.content {
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .header {
+    margin: 0px 0px 20px 0px;
+  }
+  .body {
+    color: rgb(200, 200, 200);
+    font-size: 20px;
+    line-height: 35px;
+  }
+  .tech-header {
+    color: rgb(160, 160, 160);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0px;
+  }
+  .tech-body {
+    display: flex;
+    flex-wrap: wrap;
+    img {
+      height: 48px;
+    }
+  }
 }

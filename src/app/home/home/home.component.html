@@ -24,6 +24,7 @@
   [canvasWidth]="backgroundCanvasWidth"
   [canvasHeight]="backgroundCanvasHeight"
   [initialState]="backgroundCanvasInitialState"
+  [reinitOnWindowResize]="true"
 ></app-game-of-life-canvas>
 <div class="banner"></div>
 
@@ -32,13 +33,13 @@
     <h1 class="mat-headline-1">About Me</h1>
     <p class="mat-headline-5" style="line-height: 1.5">
       Hi, I'm Gabriel Olivotto, a software engineering undergraduate student at Western University. I am passionate about coding and are particularly interested in GPU graphics/compute programming,
-      AI, and Machine Learning. I am dedicated to honing my skills and learning new technologies.
+      AI, and Machine Learning. I am dedicated to honing my skills and learning new things!
     </p>
   </div>
   <div class="projects-section">
     <h1 class="mat-headline-1">Projects</h1>
     <div class="project-list">
-      <app-project-card></app-project-card>
+      <app-project-card *ngFor="let project of projects" [title]="project.title" [description]="project.description" [imageURL]="project.imageURL" [techList]="project.techList"></app-project-card>
     </div>
   </div>
 </div>

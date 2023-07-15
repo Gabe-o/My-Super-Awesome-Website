@@ -1,12 +1,19 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements AfterViewInit {
-  @ViewChild('body') root!: ElementRef<HTMLBodyElement>;
+export class HomeComponent {
+  projects: Project[] = [
+    {
+      title: 'Title',
+      description: 'This is a description',
+      imageURL: '',
+      techList: ['angular'],
+    },
+  ];
 
   backgroundCanvasUpdateInteval = 10000;
   backgroundCanvasGridWidth = 100;
@@ -36,8 +43,6 @@ export class HomeComponent implements AfterViewInit {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ].reverse();
-
-  ngAfterViewInit(): void {}
 }
 
 function getPageWidth() {
@@ -46,4 +51,11 @@ function getPageWidth() {
 
 function getPageHeight() {
   return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.documentElement.clientHeight);
+}
+
+class Project {
+  title!: string;
+  description!: string;
+  imageURL!: string;
+  techList!: string[];
 }

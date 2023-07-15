@@ -11,38 +11,6 @@
 $my-typography: mat.define-typography-config();
 @include mat.typography-hierarchy($my-typography);
 
-$gabe-palette: (
-  50: #e8f5f8,
-  100: #c5e7ee,
-  200: #9ed7e3,
-  300: #77c6d7,
-  400: #5abacf,
-  500: #3daec6,
-  600: #37a7c0,
-  700: #2f9db9,
-  800: #2794b1,
-  900: #1a84a4,
-  A100: #daf6ff,
-  A200: #a7e9ff,
-  A400: #74dcff,
-  A700: #5bd6ff,
-  contrast: (50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #000000,
-    500: #000000,
-    600: #000000,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
-    A100: #000000,
-    A200: #000000,
-    A400: #000000,
-    A700: #000000,
-  ),
-);
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/

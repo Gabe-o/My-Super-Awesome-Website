@@ -1,13 +1,17 @@
 <div class="card">
-  <div class="image"></div>
-  <div class="header">
-    <h1>TITLE</h1>
-    <h2>SUBTITLE</h2>
+  <div class="image">
+    <img src="{{ imageURL }}" />
   </div>
   <div class="content">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis qui iure nesciunt! Quos quidem facilis quaerat iure fugit illum qui voluptatum repudiandae aliquam officiis. Dignissimos animi
-      optio quo enim nostrum.
-    </p>
+    <div class="description">
+      <h1 class="mat-headline-3 header">{{ title }}</h1>
+      <p class="mat-body-1 body">{{ description }}</p>
+    </div>
+    <div class="tech">
+      <!-- <p class="mat-headline-6 tech-header">TECHNOLOGIES:</p> -->
+      <div class="tech-body">
+        <img *ngFor="let tech of techList" src="assets/TechSVGs/{{ tech }}.svg" alt="{{ tech }}" />
+      </div>
+    </div>
   </div>
 </div>
