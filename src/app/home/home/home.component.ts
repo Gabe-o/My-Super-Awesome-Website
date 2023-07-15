@@ -12,6 +12,7 @@ export class HomeComponent {
       description: 'This is a description',
       imageURL: '',
       techList: ['angular'],
+      url: '/test',
     },
   ];
 
@@ -58,4 +59,5 @@ class Project {
   description!: string;
   imageURL!: string;
   techList!: string[];
+  url!: string;
 }

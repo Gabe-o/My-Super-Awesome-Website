@@ -10,4 +10,5 @@ export class ProjectCardComponent {
   @Input() description!: string;
   @Input() imageURL!: string;
   @Input() techList!: string[];
+  @Input() projectURL!: string;
 }

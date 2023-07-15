@@ -39,7 +39,14 @@
   <div class="projects-section">
     <h1 class="mat-headline-1">Projects</h1>
     <div class="project-list">
-      <app-project-card *ngFor="let project of projects" [title]="project.title" [description]="project.description" [imageURL]="project.imageURL" [techList]="project.techList"></app-project-card>
+      <app-project-card
+        *ngFor="let project of projects"
+        [title]="project.title"
+        [description]="project.description"
+        [imageURL]="project.imageURL"
+        [techList]="project.techList"
+        [projectURL]="project.url"
+      ></app-project-card>
     </div>
   </div>
 </div>

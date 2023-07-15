@@ -1,3 +1,5 @@
+/// <reference types="@webgpu/types" />
+
 import { AfterViewInit, Component, ViewChild, ElementRef, Input } from '@angular/core';
 
 @Component({
