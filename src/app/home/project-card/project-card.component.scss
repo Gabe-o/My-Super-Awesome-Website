@@ -26,7 +26,7 @@ $my-palette: mat.define-palette(mat.$light-blue-palette);
     height: 100%;
     border-radius: 15px;
     border: 3px solid mat.get-color-from-palette($my-palette, 500);
-    box-shadow: mat.get-color-from-palette($my-palette, 500) 2px 2px 10px 0px;
+    box-shadow: mat.get-color-from-palette($my-palette, 500) 2px 2px 10px -2px;
   }
 }
 
