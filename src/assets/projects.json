@@ -1,0 +1,9 @@
+[
+    {
+        "title": "Title",
+        "description": "This is a description",
+        "imageURL": "",
+        "techList": ["angular"],
+        "url": "/test"
+    }
+]

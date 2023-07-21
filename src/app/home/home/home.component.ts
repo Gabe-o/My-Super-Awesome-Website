@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import projectJSON from '../../../assets/projects.json';
 
 @Component({
   selector: 'app-home',
@@ -6,15 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  projects: Project[] = [
-    {
-      title: 'Title',
-      description: 'This is a description',
-      imageURL: '',
-      techList: ['angular'],
-      url: '/test',
-    },
-  ];
+  projects: Project[] = projectJSON;
+  // [
+  //   {
+  //     title: 'Title',
+  //     description: 'This is a description',
+  //     imageURL: '',
+  //     techList: ['angular'],
+  //     url: '/test',
+  //   },
+  // ];
 
   backgroundCanvasUpdateInteval = 10000;
   backgroundCanvasGridWidth = 100;
