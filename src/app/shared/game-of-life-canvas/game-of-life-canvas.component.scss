@@ -52,3 +52,9 @@ $my-palette: mat.define-palette(mat.$light-blue-palette);
   margin: 0px;
   font-family: "8BIT WONDER", sans-serif;
 }
+
+@media screen and (max-width: 900px) {
+  .name {
+    font-size: 10vw;
+  }
+}
