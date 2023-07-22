@@ -20,6 +20,7 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
 
   context!: GPUCanvasContext;
   device!: GPUDevice;
+  gpuError: boolean = false;
 
   constructor(private snackbar: MatSnackBar) {}
 
@@ -600,9 +601,12 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
         updateGrid();
       }, UPDATE_INTERVAL / 2);
     } catch (e) {
-      this.snackbar.open("WebGPU isn't supported on this browser! For the best experience use Chrome 113, Edge 113, or Opera 99.", 'Close', {
-        duration: 20000,
-      });
+      if (!this.gpuError) {
+        this.gpuError = true;
+        this.snackbar.open("WebGPU isn't supported on this browser! For the best experience use Chrome 113, Edge 113, or Opera 99.", 'Close', {
+          duration: 20000,
+        });
+      }
     }
   }
 }
