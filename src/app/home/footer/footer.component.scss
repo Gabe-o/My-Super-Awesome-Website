@@ -16,6 +16,7 @@
 
     .contacts {
       margin: 30px 0px;
+      width: 400px;
       display: flex;
       flex-wrap: wrap;
       align-content: center;
@@ -24,17 +25,20 @@
         text-align: center;
         height: 100%;
         font-size: 16px;
-        margin: 0px;
-        margin-inline: 10px;
       }
       p {
-        margin-top: 2px;
+        margin-top: 8px;
+        margin-inline: 10px;
         font-size: 20px;
         letter-spacing: 1px;
         font-weight: 600;
       }
+      a {
+        margin-top: 0px;
+        margin-inline: 10px;
+      }
       .seperator {
-        margin-top: 8px;
+        margin-top: 16px;
         font-size: 32px;
       }
     }

@@ -55,7 +55,7 @@ app-game-of-life-canvas {
 }
 
 .about-me-section {
-  width: 1200px;
+  width: 1100px;
   p {
     color: rgb(230, 230, 230);
   }
@@ -63,11 +63,11 @@ app-game-of-life-canvas {
 }
 
 .projects-section {
-  width: 1200px;
+  width: 1100px;
   margin-bottom: 8vh;
 }
 
-@media (orientation: portrait) or (width: 1200px) {
+@media (max-width: 1200px) {
   .content {
     margin-top: 66vh;
   }
