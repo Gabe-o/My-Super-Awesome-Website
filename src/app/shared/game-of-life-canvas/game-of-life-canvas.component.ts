@@ -551,7 +551,6 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
         let bindGroup: number = step % 4;
         let timeLeft: number = (Date.now() - initTime) / (UPDATE_INTERVAL / 2);
         timeLeft = timeLeft <= step + 1 ? timeLeft : step + 0.9999; // conditional here is to bind timeLeft between step and just under the next step
-        console.log(timeLeft + ' ' + step);
 
         renders++; // Increment the renders count
         const encoder = this.device.createCommandEncoder();
