@@ -121,23 +121,23 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
 
             let i = f32(instance);
             let cell = vec2f(i % grid.x, floor(i / grid.x));
-			
-			var scale = 0.0;
-			if(cellState[instance] == 1 && prevCellState[instance] == 0) { // Cell was just born this turn
-				output.states = 0.0;
-				scale = 1.0;
-			}
-			else if(cellState[instance] == 1 && prevCellState[instance] == 1) { // Cell remains alive this turn
-				output.states = 1.0;
-				scale = 1.0;
-			}
-			else if(cellState[instance] == 0 && prevCellState[instance] == 1) { // cell dies
-				output.states = 2.0;
-				scale = 1.0;
-			}
-			else { // cell was always dead
-				scale = 0;
-			}
+            
+            var scale = 0.0;
+            if(cellState[instance] == 1 && prevCellState[instance] == 0) { // Cell was just born this turn
+              output.states = 0.0;
+              scale = 1.0;
+            }
+            else if(cellState[instance] == 1 && prevCellState[instance] == 1) { // Cell remains alive this turn
+              output.states = 1.0;
+              scale = 1.0;
+            }
+            else if(cellState[instance] == 0 && prevCellState[instance] == 1) { // cell dies
+              output.states = 2.0;
+              scale = 1.0;
+            }
+            else { // cell was always dead
+              scale = 0;
+            }
 
             let cellOffset = cell / grid * 2;
             let gridPos = (position*scale+1) / grid - 1 + cellOffset;
@@ -145,25 +145,25 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
             output.position = vec4f(gridPos, 0, 1);
             output.cell = cell / grid;
 		
-			
-			
             return output;
           } 
 
           @fragment
           fn fragmentMain(input: VertexOutput) -> @location(0) vec4f {
-			const PI: f32 = 3.14159265359;
-			let max = vec4f(input.cell, 1.0-input.cell.x, 1);
-			let min = vec4f(22.0/255,22.0/255,22.0/255,1);
-			if(input.states == 0.0) { // Cell was just born
-				return (0.5*cos(time*PI+PI)+0.5) * (max-min)+min;
-			}
-			else if(input.states == 1.0) { // Cell remains alive
-				return max;
-			}
-			else {
-				return (0.5*cos(time*PI)+0.5) * (max-min)+min;
-			}
+            const PI: f32 = 3.14159265359;
+            let max = vec4f(input.cell, 1.0-input.cell.x, 1);
+            let min = vec4f(22.0/255,22.0/255,22.0/255,1);
+            if(input.states == 0.0) { // Cell was just born
+              // return (time-floor(time)) * (max-min)+min; // Sawtooth time function
+              return ((0.5*cos(time*PI+PI)+0.5) * (2*floor(0.5*time)-floor(2*0.5*time)) + (0.5*cos(time*PI)+0.5) * (2*floor(0.5*(time+1))-floor(2*0.5*(time+1))) + 1) * (max-min)+min; // Sawtooth sin
+            }
+            else if(input.states == 1.0) { // Cell remains alive
+              return max;
+            }
+            else {
+              // return (ceil(time)-time) * (max-min)+min; // Sawtooth time function
+              return ((0.5*cos(time*PI)+0.5) * (2*floor(0.5*time)-floor(2*0.5*time)) + (0.5*cos(time*PI+PI)+0.5) * (2*floor(0.5*(time+1))-floor(2*0.5*(time+1))) + 1) * (max-min)+min; // Sawtooth sin
+            }
           }
         `,
       });
@@ -178,7 +178,7 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
 	-0.8, -0.8, // Triangle 2
   	 0.8,  0.8, 
   	-0.8,  0.8,
-]);
+      ]);
       const vertexBuffer: GPUBuffer = this.device.createBuffer({
         label: 'Cell vertices',
         size: vertices.byteLength,
@@ -549,7 +549,9 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
 
       const render = () => {
         let bindGroup: number = step % 4;
-        let timeLeft: number = (Date.now() - initTime) / (UPDATE_INTERVAL / 2) - step;
+        let timeLeft: number = (Date.now() - initTime) / (UPDATE_INTERVAL / 2);
+        timeLeft = timeLeft <= step + 1 ? timeLeft : step + 0.9999; // conditional here is to bind timeLeft between step and just under the next step
+        console.log(timeLeft + ' ' + step);
 
         renders++; // Increment the renders count
         const encoder = this.device.createCommandEncoder();
