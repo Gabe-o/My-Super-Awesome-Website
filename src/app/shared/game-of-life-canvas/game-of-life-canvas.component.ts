@@ -601,7 +601,7 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
       }, UPDATE_INTERVAL / 2);
     } catch (e) {
       this.snackbar.open("WebGPU isn't supported on this browser! For the best experience use Chrome 113, Edge 113, or Opera 99.", 'Close', {
-        duration: 15000,
+        duration: 20000,
       });
     }
   }
