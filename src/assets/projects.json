@@ -1,9 +1,9 @@
 [
     {
-        "title": "Title",
-        "description": "This is a description",
-        "imageURL": "",
-        "techList": ["angular"],
-        "url": "/test"
+        "title": "Unity RPG",
+        "description": "Embark on an epic Unity RPG adventure, battling monsters and bosses as 3 distinct characters, each with unique combat styles and abilities. Customize your heroes through a skill tree and gear up with equipment from specialized shops.",
+        "imageURL": "assets/unityrpg_splash.png",
+        "techList": ["csharp","unity"],
+        "url": "/project/unityrpg"
     }
 ]

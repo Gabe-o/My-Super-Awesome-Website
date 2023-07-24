@@ -21,6 +21,8 @@ $my-palette: mat.define-palette(mat.$light-blue-palette);
 
 .image {
   aspect-ratio: 1;
+  width: 320px;
+  height: 320px;
   img {
     width: 100%;
     height: 100%;
@@ -53,6 +55,7 @@ $my-palette: mat.define-palette(mat.$light-blue-palette);
     flex-wrap: wrap;
     img {
       height: 48px;
+      margin: 4px;
     }
   }
 }
