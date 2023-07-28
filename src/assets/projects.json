@@ -5,5 +5,12 @@
         "imageURL": "assets/unityrpg_splash.png",
         "techList": ["csharp","unity"],
         "url": "/project/unityrpg"
+    },
+    {
+        "title": "Pong",
+        "description": "A recreation of the game Pong on a DE10 Standard FPGA Development Board using the built in LCD and 7-segment displays for output and a pair of GPIO analog dials to control the paddles.",
+        "imageURL": "assets/pong_splash.png",
+        "techList": ["c"],
+        "url": "/project/pong"
     }
 ]
