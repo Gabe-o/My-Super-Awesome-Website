@@ -58,3 +58,13 @@ $my-palette: mat.define-palette(mat.$light-blue-palette);
     font-size: 10vw;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .name {
+    font-size: 10vw;
+  }
+
+  .container {
+    padding: 20px 20px 28px 33px;
+  }
+}

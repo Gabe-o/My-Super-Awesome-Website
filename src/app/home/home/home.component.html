@@ -5,7 +5,7 @@
   [canvasWidth]="backgroundCanvasWidth"
   [canvasHeight]="backgroundCanvasHeight"
   [initialState]="backgroundCanvasInitialState"
-  [reinitOnWindowResize]="true"
+  [reinitOnWindowResize]="!(isHandset$ | async)"
 ></app-game-of-life-canvas>
 <div class="banner"></div>
 

@@ -73,7 +73,17 @@ $my-palette: mat.define-palette(mat.$light-blue-palette);
 }
 
 @media screen and (max-width: 600px) {
+  .card-container {
+    width: 90vw;
+    height: fit-content;
+    margin: 0px 0px 20px 0px;
+  }
+
   .card {
+    height: fit-content;
+  }
+
+  .card-content {
     flex-direction: column;
     flex-wrap: wrap;
     height: fit-content;
