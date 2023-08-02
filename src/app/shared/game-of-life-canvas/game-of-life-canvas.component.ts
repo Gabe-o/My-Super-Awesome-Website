@@ -153,17 +153,28 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
             const PI: f32 = 3.14159265359;
             let max = vec4f(input.cell, 1.0-input.cell.x, 1);
             let min = vec4f(22.0/255,22.0/255,22.0/255,1);
+
             if(input.states == 0.0) { // Cell was just born
-              // return (time-floor(time)) * (max-min)+min; // Sawtooth time function
-              return ((0.5*cos(time*PI+PI)+0.5) * (2*floor(0.5*time)-floor(2*0.5*time)) + (0.5*cos(time*PI)+0.5) * (2*floor(0.5*(time+1))-floor(2*0.5*(time+1))) + 1) * (max-min)+min; // Sawtooth sin
-            }
+				      return (0.5*cos(time*PI+PI)+0.5) * (max-min)+min;
+			      }
             else if(input.states == 1.0) { // Cell remains alive
               return max;
             }
             else {
-              // return (ceil(time)-time) * (max-min)+min; // Sawtooth time function
-              return ((0.5*cos(time*PI)+0.5) * (2*floor(0.5*time)-floor(2*0.5*time)) + (0.5*cos(time*PI+PI)+0.5) * (2*floor(0.5*(time+1))-floor(2*0.5*(time+1))) + 1) * (max-min)+min; // Sawtooth sin
+              return (0.5*cos(time*PI)+0.5) * (max-min)+min;
             }
+
+            // if(input.states == 0.0) { // Cell was just born
+            //   // return (time-floor(time)) * (max-min)+min; // Sawtooth time function
+            //   return ((0.5*cos(time*PI+PI)+0.5) * (2*floor(0.5*time)-floor(2*0.5*time)) + (0.5*cos(time*PI)+0.5) * (2*floor(0.5*(time+1))-floor(2*0.5*(time+1))) + 1) * (max-min)+min; // Sawtooth sin
+            // }
+            // else if(input.states == 1.0) { // Cell remains alive
+            //   return max;
+            // }
+            // else {
+            //   // return (ceil(time)-time) * (max-min)+min; // Sawtooth time function
+            //   return ((0.5*cos(time*PI)+0.5) * (2*floor(0.5*time)-floor(2*0.5*time)) + (0.5*cos(time*PI+PI)+0.5) * (2*floor(0.5*(time+1))-floor(2*0.5*(time+1))) + 1) * (max-min)+min; // Sawtooth sin
+            // }
           }
         `,
       });
@@ -549,8 +560,8 @@ export class GameOfLifeCanvasComponent implements AfterViewInit {
 
       const render = () => {
         let bindGroup: number = step % 4;
-        let timeLeft: number = (Date.now() - initTime) / (UPDATE_INTERVAL / 2);
-        timeLeft = timeLeft <= step + 1 ? timeLeft : step + 0.9999; // conditional here is to bind timeLeft between step and just under the next step
+        let timeLeft: number = (Date.now() - initTime) / (UPDATE_INTERVAL / 2) - step;
+        //timeLeft = timeLeft <= step + 1 ? timeLeft : step + 0.9999; // conditional here is to bind timeLeft between step and just under the next step
 
         renders++; // Increment the renders count
         const encoder = this.device.createCommandEncoder();
