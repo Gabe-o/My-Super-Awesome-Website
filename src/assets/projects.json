@@ -1,10 +1,10 @@
 [
     {
-        "title": "Unity RPG",
-        "description": "Embark on an epic Unity RPG adventure, battling monsters and bosses as 3 distinct characters, each with unique combat styles and abilities. Customize your heroes through a skill tree and gear up with equipment from specialized shops.",
-        "imageURL": "assets/unityrpg_splash.png",
+        "title": "Cave Deck Builder Rougelike",
+        "description": "Navigate a shifting dungeon, evade guardians and spirits, and strategically build your deck to collect the artifact and escape. Your survival hinges on stealth, strategy, and the luck of the draw.",
+        "imageURL": "assets/cavegame_splash.png",
         "techList": ["csharp","unity"],
-        "url": "/project/unityrpg"
+        "url": "/project/cavegame"
     },
     {
         "title": "Pong",
@@ -12,5 +12,12 @@
         "imageURL": "assets/pong_splash.png",
         "techList": ["c"],
         "url": "/project/pong"
+    },
+    {
+        "title": "Unity RPG",
+        "description": "Embark on an epic Unity RPG adventure, battling monsters and bosses as 3 distinct characters, each with unique combat styles and abilities. Customize your heroes through a skill tree and gear up with equipment from specialized shops.",
+        "imageURL": "assets/unityrpg_splash.png",
+        "techList": ["csharp","unity"],
+        "url": "/project/unityrpg"
     }
 ]
