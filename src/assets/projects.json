@@ -1,5 +1,19 @@
 [
     {
+        "title": "Sonic-Scribe Music Transcriber",
+        "description": "Sonic-Scribe is a sheet music sharing platform that can transcribe audio files directly into sheet music using various machine learning frameworks. SonicScribe was developed with a small team as our Undergraduate Capstone Project.",
+        "imageURL": "assets/sonicscribe_splash.png",
+        "techList": ["TensorFlow","PyTorch","Gatsby","React","","Node.js","MySQL","Firebase"],
+        "url": "https://github.com/Gabe-o/Sonic-Scribe"
+    },
+    {
+        "title": "Detecting Geese using YOLOv8",
+        "description": "Developed a machine learning model to detect and count geese in images and videos using YOLOv8, optimizing detection accuracy through various configurations. Created an annotated dataset, and demonstrated the model's effectiveness for wildlife monitoring.",
+        "imageURL": "assets/geese_splash.png",
+        "techList": ["Python","Jupyter"],
+        "url": "/project/cavegame"
+    },
+    {
         "title": "Cave Deck Builder Rougelike",
         "description": "Navigate a shifting dungeon, evade guardians and spirits, and strategically build your deck to collect the artifact and escape. Your survival hinges on stealth, strategy, and the luck of the draw.",
         "imageURL": "assets/cavegame_splash.png",
