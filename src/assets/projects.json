@@ -11,7 +11,7 @@
         "description": "Developed a machine learning model to detect and count geese in images and videos using YOLOv8, optimizing detection accuracy through various configurations. Created an annotated dataset, and demonstrated the model's effectiveness for wildlife monitoring.",
         "imageURL": "assets/geese_splash.png",
         "techList": ["Python","Jupyter"],
-        "url": "/project/cavegame"
+        "url": "https://github.com/Gabe-o/Detecting-Geese-Yolov8"
     },
     {
         "title": "Cave Deck Builder Rougelike",
